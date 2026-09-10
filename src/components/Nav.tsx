@@ -10,11 +10,11 @@ const Nav = () => {
 
         {/* Nav Item */}
         <ul className="flex justify-between items-center gap-6 font-semibold">
-          <li className="text-[#D91B7E]">Home</li>
-          <li>Technologies</li>
-          <li>Projects</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li className="text-[#D91B7E]"><a href="#">Home</a></li>
+          <li><a href="#">Technologies</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
 
         {/* Button Section */}
