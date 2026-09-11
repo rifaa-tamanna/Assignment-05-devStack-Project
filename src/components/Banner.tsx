@@ -1,4 +1,3 @@
-import React from 'react'
 import bannerImg from '../assets/banner-stack.png'
 
 const Banner = () => {
@@ -22,7 +21,7 @@ const Banner = () => {
             </div>
         </div>
 
-        <div className='cover'>
+        <div  className='h-auto max-w-xl' >
             <img src={bannerImg} alt="Banner Stack" />
         </div>
     </div>
