@@ -7,7 +7,7 @@ const Banner = () => {
         <div>
             <h1 className='font-bold text-5xl text-[#0F172A]'>
                 Build Your Ideal < br /> 
-                <span className='bg-gradient-to-r from-red-500 to-purple-600 bg-clip-text text-transparent'> Development Stack </span>    
+                <span className='bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent'> Development Stack </span>    
             </h1>
             <p className='text-[#475569] pt-5 pb-10 text-[18px]'>
                 Explore frontend, backend, database, and tooling options, <br />

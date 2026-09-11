@@ -3,8 +3,8 @@ import logo from "../assets/logo-text.png";
 
 const Nav = () => {
   return (
-    <nav>
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-5">
+    <nav className='sticky top-0 z-50 bg-[#fbf0f3]'>
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-5 backdrop-filter backdrop-blur">
         {/* Logo Section */}
         <img src={logo} alt="Website Logo" />
 
