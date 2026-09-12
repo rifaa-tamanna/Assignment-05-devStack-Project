@@ -3,6 +3,8 @@ import Banner from "./components/Banner"
 import Nav from "./components/Nav"
 import Technologies from "./components/technologiesBox/Technologies"
 import type { ITechnologies } from "./Types/TechnologiesType"
+import SelectedCard from "./components/technologiesBox/SelectedCard"
+import Footer from "./components/Footer"
 
 
 
@@ -23,12 +25,15 @@ function App() {
 
 
     <>
+      
       <Nav />
       <Banner />
-
       <Suspense fallback={<p>Loading...</p>}>
         <Technologies technologiesPromises={technologiesPromises} />
       </Suspense>
+      <Footer />
+      
+
 
     </>
   )
