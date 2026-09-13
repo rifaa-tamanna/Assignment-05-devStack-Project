@@ -8,7 +8,7 @@ const Footer = () => {
           <aside>
             <img src={footerLogo} alt="" />
 
-            <p className="text-gray-600 text-[16px]">
+            <p className="text-gray-600 text-[16px] pt-2">
               Curated tools, technologies, and resources for developers building{" "}
               <br className="hidden md:block" />
               modern software.
