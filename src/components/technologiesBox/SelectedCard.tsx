@@ -1,4 +1,4 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import type { ITechnologies } from "../../Types/TechnologiesType";
 
 interface SelectedCardProps {
@@ -7,8 +7,8 @@ interface SelectedCardProps {
 }
 
 const SelectedCard = ({
-  selectedStack,
-  setselectedStack,
+  
+  
 }: SelectedCardProps) => {
   return (
     <div className="w-1/4">
