@@ -13,39 +13,46 @@ interface TechnologiesProps {
 const Technologies = ({ technologiesPromises }: TechnologiesProps) => {
   const technologies = use(technologiesPromises);
 
-const [addTech, setAddTech] = useState<ITechnologies[]>([]);
+  const [addTech, setAddTech] = useState<ITechnologies[]>([]);
 
+  // Add to Stack
+  const handleAddToStack = (techno: ITechnologies) => {
+    const alreadyAdded = addTech.some(
+      (technology) => technology.name === techno.name,
+    );
 
-// Add to Stack
-const handleAddToStack = (techno: ITechnologies) => {
-  setAddTech([...addTech, techno]);
+    if (alreadyAdded) {
+      toast.warning(`${techno.name} is already in your stack!`);
+      return;
+    }
 
-  toast.success(`${techno.name} added to your stack!`);
-};
+    setAddTech([...addTech, techno]);
 
+    toast.success(`${techno.name} added to your stack!`);
+  };
 
-// Remove Single Stack
-const handleRemoveStack = (stack: ITechnologies) => {
-  const restStacks = addTech.filter(
-    (oneStackGet) => oneStackGet.name !== stack.name
-  );
+  // Remove Single Stack
+  const handleRemoveStack = (stack: ITechnologies) => {
+    const restStacks = addTech.filter(
+      (oneStackGet) => oneStackGet.name !== stack.name,
+    );
 
-  setAddTech(restStacks);
+    setAddTech(restStacks);
 
-  toast.warning(`${stack.name} removed from stack!`);
-};
+    toast.warning(`${stack.name} removed from stack!`);
+  };
 
-
-// Remove All Stack 
-const handleRemoveAll = () => { 
-  setAddTech([]); toast.error("All technologies removed from your stack!"); };
+  // Remove All Stack
+  const handleRemoveAll = () => {
+    setAddTech([]);
+    toast.error("All technologies removed from your stack!");
+  };
 
   return (
     <section>
-
       {/* Heading title */}
-      <div className="max-w-7xl mx-auto">
-        <div className="font-bold text-4xl">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-0">
+        <div className="font-bold text-3xl md:text-4xl">
           Explore
           <span className="bg-gradient-to-r from-[#DB4BA9] to-[#CA4FB9] bg-clip-text text-transparent">
             Technologies
@@ -57,9 +64,9 @@ const handleRemoveAll = () => {
         </div>
       </div>
 
-      <div className="flex max-w-7xl mx-auto min-h-fit gap-8">
+      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto min-h-fit gap-8 px-4 md:px-6 lg:px-0">
         {/* All Technology Cards */}
-        <div className="w-3/4">
+        <div className="w-full lg:w-3/4">
           <AllStack
             technologies={technologies}
             handleAddToStack={handleAddToStack}
@@ -68,7 +75,7 @@ const handleRemoveAll = () => {
         </div>
 
         {/* Your Stack */}
-        <div className="w-1/4 grid grid-cols-1 py-10">
+        <div className="w-full lg:w-1/4 grid grid-cols-1 py-10">
           <div className="h-full mt-auto">
             {addTech.length === 0 ? (
               <div className="card card-lg shadow-sm">
@@ -98,6 +105,7 @@ const handleRemoveAll = () => {
 
                       <p className="text-[#94A3B8] text-[16px] pt-[4px] pb-[10px]">
                         {addTech.length}
+
                         {addTech.length === 1
                           ? "Technology Selected"
                           : "Technologies Selected"}
@@ -142,14 +150,13 @@ const handleRemoveAll = () => {
                       );
                     })}
 
-                      {/* Remove All Button */}
+                    {/* Remove All Button */}
                     <button
                       onClick={handleRemoveAll}
                       className="btn font-bold text-[18px] text-[#dc2626] border-red-500 rounded-xl mt-[40px]"
                     >
                       Remove All
                     </button>
-
                   </div>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import { FaCheck } from "react-icons/fa";
 import type { ITechnologies } from "../../Types/TechnologiesType";
 
 interface SingleStackCardProps {
@@ -11,9 +12,7 @@ const SingleStackCard = ({
   handleAddToStack,
   addTech,
 }: SingleStackCardProps) => {
-  const isSelected = addTech.some(
-    (tech) => tech.name === technology.name
-  );
+  const isSelected = addTech.some((tech) => tech.name === technology.name);
 
   const handleSelectTech = () => {
     handleAddToStack(technology);
@@ -23,18 +22,12 @@ const SingleStackCard = ({
     <div>
       <div
         className={`${
-          isSelected === true
-            ? "border-2 -translate-y-2 shadow-xl"
-            : ""
+          isSelected === true ? "border-2 -translate-y-2 shadow-xl" : ""
         } border-[#D91B7E] rounded-xl shadow-sm mt-5`}
       >
-        <div className="card-body">
+        <div className="card-body p-4 md:p-5">
           <div className="flex justify-between">
-            <img
-              className="w-12 h-12"
-              src={technology.icon}
-              alt="React Icon"
-            />
+            <img className="w-12 h-12" src={technology.icon} alt="React Icon" />
 
             <span
               className={`btn py-[16px] px-[20px] badge badge-xs bg-[#E0F2FE] text-[14px] rounded-xl ${
@@ -46,7 +39,7 @@ const SingleStackCard = ({
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold pt-4">
+            <h2 className="text-xl md:text-2xl font-bold pt-4">
               {technology.name}
             </h2>
 
@@ -55,14 +48,12 @@ const SingleStackCard = ({
             </div>
           </div>
 
-          <div className="flex justify-between items-center pt-6">
+          <div className="flex justify-between items-center pt-6 gap-2">
             <button className="border-none text-[#475569] text-[15px]">
               {technology.category}
             </button>
 
-            <h2 className="text-[#475569] text-[15px]">
-              {technology.level}
-            </h2>
+            <h2 className="text-[#475569] text-[15px]">{technology.level}</h2>
 
             <div className="flex justify-between items-center gap-2 color-[#FBBF24]">
               <div className="rating">
@@ -88,7 +79,13 @@ const SingleStackCard = ({
                   : "bg-[#0A0F1D]"
               } py-5 rounded-xl text-[15px]`}
             >
-              {isSelected ? "Added to Stack" : "Add To Stack"}
+              {isSelected === true ? (
+                <>
+                  <FaCheck /> Added to Stack
+                </>
+              ) : (
+                "Add to Stack"
+              )}
             </button>
           </div>
         </div>
@@ -98,8 +95,3 @@ const SingleStackCard = ({
 };
 
 export default SingleStackCard;
-
-
-
-
-

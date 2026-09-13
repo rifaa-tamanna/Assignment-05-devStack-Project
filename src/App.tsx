@@ -28,12 +28,21 @@ function App() {
       
       <Nav />
       <Banner />
-      <Suspense fallback={<p>Loading...</p>}>
+    
+      <Suspense
+        fallback={
+          <div className="min-h-100 flex flex-col items-center justify-center gap-4">
+            <span className="loading loading-spinner loading-lg text-[#DB2777]"></span>
+            <p className="text-[#64748B] text-lg font-medium">
+              Loading technologies...
+            </p>
+          </div>
+        }
+      >
         <Technologies technologiesPromises={technologiesPromises} />
       </Suspense>
-      <Footer />
-      
 
+      <Footer />
 
     </>
   )
